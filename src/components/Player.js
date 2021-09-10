@@ -11,7 +11,7 @@ export const Player = props => {
     }))
 
     useFrame(() => {
-        camera.position.copy(re.current.position);
+        camera.position.copy(ref.current.position);
     });
 
     return (

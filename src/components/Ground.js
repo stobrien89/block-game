@@ -5,7 +5,7 @@ import grass from '../images/grass.jpg';
 
 import { useStore } from '../hooks/useStore';
 
-const Ground = props => {
+export const Ground = props => {
     const [ref] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], ...props}));
     const [ addCube, type ] = useStore(state => [state.addCube, state.type])
     const texture = new TextureLoader().load(grass);
