@@ -5,6 +5,7 @@ import { Physics } from 'use-cannon';
 
 import { Ground } from './components/Ground'
 import {Player} from './components/Player'
+import { Cube } from './components/Cube';
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
       <Physics gravity={[0, -30, 0]}>
         <Ground position={[0, .5, 0]}/>
         <Player position={[0, 3, 10]} />
+        <Cube position={[0, 0, 0]}/>
       </Physics>
     </Canvas>
     )
