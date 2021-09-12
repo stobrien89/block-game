@@ -34,14 +34,12 @@ export const useKeyboardControls = () => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Movement key
       if (actionByKey(e.code)) {
         setMovement((state) => ({
           ...state,
           [actionByKey(e.code)]: true,
         }));
       }
-      // Change texture key
       if (textureByKey(e.code)) {
         setTexture(textureByKey(e.code));
       }

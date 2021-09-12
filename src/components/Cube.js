@@ -10,7 +10,7 @@ export const Cube = ({ position, type, ...props}) => {
     }));
  
     return (
-     <mesh ref={ref}>
+     <mesh castShadow ref={ref}>
          {[...Array(6)].map((_, index) => (
              <meshStandardMaterial 
                 attachArray="material"
