@@ -3,6 +3,7 @@ import { useSphere } from 'use-cannon';
 import { useThree, useFrame } from 'react-three-fiber';
 import { useKeyboardControls } from '../hooks/useKeyboardControls';
 import { Vector3 } from 'three';
+import { FPVControls } from './FPVControls';
 
 const SPEED = 6;
 
@@ -57,6 +58,7 @@ export const Player = props => {
     });
     return (
       <>
+        <FPVControls/>
         <mesh ref={ref} />
       </>
     );
