@@ -6,11 +6,11 @@ const setLocalStorage = (key, value) =>
 
 export const useStore = create((set) => ({
     cubes: getLocalStorage('world') || [
-        {pos:[0,1,0], type: 'dirt'},
-        {pos:[1,0,0], type: 'wood'},
-        {pos:[0,0,1], type: 'grass'},
-        {pos:[-1,0,0], type: 'glass'},
-        {pos:[0,-1,0], type: 'log'}
+        {pos:[0,1,0], texture: 'dirt'},
+        {pos:[1,0,0], texture: 'wood'},
+        {pos:[0,0,1], texture: 'grass'},
+        {pos:[-1,0,0], texture: 'glass'},
+        {pos:[0,-1,0], texture: 'log'}
     ],
     addCube: (x, y, z, type) => 
         set(state => ({
