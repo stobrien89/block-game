@@ -16,6 +16,9 @@ export const Cube = ({ position, texture, ...props}) => {
             e.stopPropagation();
             setHover(Math.floor(e.faceIndex / 2))
         }}
+        onPointerOut={e => {
+            setHover(null);
+        }}
      >
          {[...Array(6)].map((_, index) => (
              <meshStandardMaterial 
