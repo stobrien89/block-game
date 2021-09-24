@@ -4,6 +4,11 @@ import * as textures from "../textures";
 
 export const Cube = ({ position, texture, ...props}) => {
     const [ hover, setHover ] = useState(null);
+    const [addCube, removeCube, activeTexture] = useStore(state => {
+        state.addCube,
+        state.removeCube,
+        state.texture
+    })
     const [ref] = useBox(() => ({
         type: 'Static',
         position,
@@ -18,6 +23,35 @@ export const Cube = ({ position, texture, ...props}) => {
         }}
         onPointerOut={e => {
             setHover(null);
+        }}
+        onClick={e => {
+            e.stopPropagation();
+            const clickedFace = Math.floor(e.faceIndex / 2);
+            const {x, y, z} = ref.current.position;
+
+            if (clickedFace === 0) {
+                e.altKey ? removeCube(x, y, z) : addCube(x, y, z, activeTexture);
+            }
+            if (clickedFace === 1) {
+                e.altKey ? removeCube(x, y, z) : addCube(x, y, z, activeTexture);
+                return;
+            }
+            if (clickedFace === 2) {
+                e.altKey ? removeCube(x, y, z) : addCube(x, y, z, activeTexture);
+                return;
+            }
+            if (clickedFace === 3) {
+                e.altKey ? removeCube(x, y, z) : addCube(x, y, z, activeTexture);
+                return;
+            }
+            if (clickedFace === 4) {
+                e.altKey ? removeCube(x, y, z) : addCube(x, y, z, activeTexture);
+                return;
+            }
+            if (clickedFace === 5) {
+                e.altKey ? removeCube(x, y, z) : addCube(x, y, z, activeTexture);
+                return;
+            }
         }}
      >
          {[...Array(6)].map((_, index) => (
