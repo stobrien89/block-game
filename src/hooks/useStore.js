@@ -16,9 +16,14 @@ export const useStore = create((set) => ({
         set(state => ({
             cubes: [...state.cubes, {pos: [x,y,z], texture}],
         })),
-    removeCube: (x, y, z) => set(state => state.cubes.filter(
-        cube => cube.x !== x || cube.y !== y || cube.z !== z)
-        ),
+    removeCube: (x, y, z) => {
+        set((state) => ({
+            cubes: state.cubes.filter((cube) => {
+                const [_x, _y, _z] = cube.pos;
+                return _x !== x || _y !== y || _z !== z;
+            }),
+        }));
+    },
     texture: "wood",
     setTexture: texture => set((state) => ({texture})),
     saveWorld: () => set(state => {
