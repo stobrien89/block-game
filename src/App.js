@@ -8,11 +8,19 @@ import {Player} from './components/Player'
 import { Cube } from './components/Cube';
 
 import { useStore } from './hooks/useStore'
+import { useInterval } from './hooks/useInterval';
 
 function App() {
     const cubes = useStore(state => state.cubes).map(cube => {
       return <Cube position={cube.pos} texture={cube.texture}/>
     })
+
+    const saveWorld = useStore(state => state.saveWorld);
+
+    useInterval(() => {
+      saveWorld(cubes)
+      console.log(saved)
+    }, 10000)
 
     return (
       <Canvas shadowMap sRGB gl={{ alpha: false }}>
