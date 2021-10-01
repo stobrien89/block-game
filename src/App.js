@@ -6,22 +6,9 @@ import { nanoid } from 'nanoid'
 
 import { Ground } from './components/Ground'
 import {Player} from './components/Player'
-import { Cube } from './components/Cube';
 
-import { useStore } from './hooks/useStore'
-import { useInterval } from './hooks/useInterval';
 
 function App() {
-    const cubes = useStore(state => state.cubes).map(cube => {
-      return <Cube key={nanoid} position={cube.pos} texture={cube.texture}/>
-    })
-
-    const saveWorld = useStore(state => state.saveWorld);
-
-    useInterval(() => {
-      saveWorld(cubes)
-      console.log('saved')
-    }, 30000)
 
     return (
       <Canvas shadowMap sRGB gl={{ alpha: false }}>
@@ -31,7 +18,6 @@ function App() {
         <Physics gravity={[0, -30, 0]}>
           <Ground position={[0, 0.5, 0]}/>
           <Player position={[0, 3, 10]} />
-          {cubes}
         </Physics>
       </Canvas>
     )
