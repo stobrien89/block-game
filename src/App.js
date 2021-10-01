@@ -2,6 +2,7 @@ import React from 'react';
 import { Canvas } from 'react-three-fiber'
 import { Sky } from 'drei';
 import { Physics } from 'use-cannon';
+import { nanoid } from 'nanoid'
 
 import { Ground } from './components/Ground'
 import {Player} from './components/Player'
@@ -12,15 +13,15 @@ import { useInterval } from './hooks/useInterval';
 
 function App() {
     const cubes = useStore(state => state.cubes).map(cube => {
-      return <Cube position={cube.pos} texture={cube.texture}/>
+      return <Cube key={nanoid} position={cube.pos} texture={cube.texture}/>
     })
 
     const saveWorld = useStore(state => state.saveWorld);
 
     useInterval(() => {
       saveWorld(cubes)
-      console.log(saved)
-    }, 10000)
+      console.log('saved')
+    }, 30000)
 
     return (
       <Canvas shadowMap sRGB gl={{ alpha: false }}>
