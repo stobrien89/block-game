@@ -1,8 +1,9 @@
 import React, { memo } from 'react';
 import { useBox } from 'use-cannon';
 import * as textures from "../textures";
+import { useState } from 'react';
 
-export const Cube = ({ position, texture, ...props}) => {
+export const Cube = ({ position, texture, addCube, removeCube}) => {
     const [ hover, setHover ] = useState(null);
 
     const [ref] = useBox(() => ({

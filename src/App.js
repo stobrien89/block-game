@@ -2,7 +2,7 @@ import React from 'react';
 import { Canvas } from 'react-three-fiber'
 import { Sky } from 'drei';
 import { Physics } from 'use-cannon';
-import { nanoid } from 'nanoid'
+import { Cubes } from './components/Cubes';
 
 import { Ground } from './components/Ground'
 import {Player} from './components/Player'
@@ -18,6 +18,7 @@ function App() {
         <Physics gravity={[0, -30, 0]}>
           <Ground position={[0, 0.5, 0]}/>
           <Player position={[0, 3, 10]} />
+          <Cubes />
         </Physics>
       </Canvas>
     )
